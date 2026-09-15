@@ -1,0 +1,24 @@
+#!/bin/bash
+
+calculator() {
+    read -p "Enter first number: " num1
+    read -p "Enter second number: " num2
+
+    sum=$((num1 + num2))
+    diff=$((num1 - num2))
+    product=$((num1 * num2))
+
+    echo "Results:"
+    echo "$num1 + $num2 = $sum"
+    echo "$num1 - $num2 = $diff"
+    echo "$num1 * $num2 = $product"
+
+    if [ "$num2" -eq 0 ]; then
+        echo "$num1 / $num2 = Error: cannot divide by zero"
+    else
+        division=$((num1 / num2))
+        echo "$num1 / $num2 = $division"
+    fi
+}
+
+calculator
