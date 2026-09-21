@@ -1,0 +1,21 @@
+#!/bin/bash
+
+read -p "Enter source directory: " sourcedir
+
+timestamp=$(date +%F_%H-%M)
+backupdir="backup_$timestamp"
+
+mkdir "$backupdir"
+echo "Backup directory created: $backupdir"
+
+echo "Copying .txt files..."
+
+count=0
+for file in "$sourcedir"/*.txt; do
+    if [ -e "$file" ]; then
+        cp "$file" "$backupdir"
+        count=$((count + 1))
+    fi
+done
+
+echo "Backup complete! Files backed up: $count"
